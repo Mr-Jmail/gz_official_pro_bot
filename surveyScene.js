@@ -79,7 +79,7 @@ module.exports = new Scenes.WizardScene("surveyScene",
         ctx.reply("Вы успешно зарегистрировались, наш эксперт свяжется с Вами в течении дня!").catch(err => console.log(err))
         const { firstName, lastName, phoneNumber } = ctx.scene.session.state
         saveToCRM(firstName, lastName, phoneNumber)
-        return ctx.wizard.leave()
+        return ctx.scene.leave()
     }
 )
 
