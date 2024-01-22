@@ -4,7 +4,6 @@ const { Scenes } = require("telegraf")
 const crypto = require('crypto');
 const { faker } = require('@faker-js/faker');
 
-
 module.exports = new Scenes.WizardScene("surveyScene", 
     async ctx => {
         ctx.scene.session.state = { firstName: "", lastName: "", phoneNumber: "" }
