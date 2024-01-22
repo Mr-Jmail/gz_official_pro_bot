@@ -81,8 +81,8 @@ module.exports = new Scenes.WizardScene("surveyScene",
         if(!/^\+7\d{10}$/.test(ctx?.message?.text)) return ctx.reply("Введите корректный номер телефона (пример +79054444444)")
         ctx.scene.session.state.phoneNumber = ctx.message.text
         ctx.reply("Вы успешно зарегистрировались, наш эксперт свяжется с Вами в течении дня!").catch(err => console.log(err))
-        const { firstName, lastName, phoneNumber } = ctx.scene.session.state
-        saveToCRM(firstName, lastName, phoneNumber, generateRandomEmail())
+        const { phoneNumber, firstName, lastName } = ctx.scene.session.state
+        saveToCRM(phoneNumber, firstName, lastName, generateRandomEmail())
         return ctx.scene.leave()
     }
 )
