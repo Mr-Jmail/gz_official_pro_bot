@@ -1,3 +1,5 @@
+const path = require("path")
+require("dotenv").config({path: path.join(__dirname, ".env")})
 const { Scenes } = require("telegraf")
 const crypto = require('crypto');
 const { faker } = require('@faker-js/faker');
