@@ -74,7 +74,7 @@ module.exports = new Scenes.WizardScene("surveyScene",
         return ctx.wizard.next()
     },
     async ctx => {
-        if(!/^7\d{10}$/.test(!ctx?.message?.text)) return ctx.reply("Введите корректный номер телефона (пример 79054444444)")
+        if(!/^7\d{10}$/.test(ctx?.message?.text)) return ctx.reply("Введите корректный номер телефона (пример 79054444444)")
         ctx.scene.session.state.phoneNumber = ctx.message.text
         ctx.reply("Вы успешно зарегистрировались, наш эксперт свяжется с Вами в течении дня!").catch(err => console.log(err))
         const { firstName, lastName, phoneNumber } = ctx.scene.session.state
