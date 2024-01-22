@@ -82,7 +82,7 @@ module.exports = new Scenes.WizardScene("surveyScene",
         ctx.scene.session.state.phoneNumber = ctx.message.text
         ctx.reply("Вы успешно зарегистрировались, наш эксперт свяжется с Вами в течении дня!").catch(err => console.log(err))
         const { phoneNumber, firstName, lastName } = ctx.scene.session.state
-        saveToCRM(phoneNumber, firstName, lastName, generateRandomEmail())
+        saveToCRM(phoneNumber, firstName, lastName, generateRandomEmail()).catch(err => console.log(err))
         return ctx.scene.leave()
     }
 )
@@ -92,7 +92,7 @@ async function removeKyeboardFromMessage(ctx) {
 }
 
 async function saveToCRM(phoneNumber, firstName, lastName, email) {
-    var res = await fetch(new URL(`https://doza-traffic.com/api/wm/push.json?id=${process.env.crmToken}&offer=1&flow=264&site=103&phone=${phoneNumber}&name=${firstName}&last=${lastName}&email=${email}`))
+    var res = await fetch(new URL(`https://doza-traffic.com/api/wm/push.json?id=${process.env.crmToken}&offer=1&flow=264&site=103&phone=${phoneNumber}&name=${firstName}&last=${lastName}&email=${email}`)).catch(err => console.log(err))
     console.log(await res.json());
 }
 
