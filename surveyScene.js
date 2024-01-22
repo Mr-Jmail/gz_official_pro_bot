@@ -92,7 +92,7 @@ async function removeKyeboardFromMessage(ctx) {
 }
 
 async function saveToCRM(phoneNumber, firstName, lastName, email) {
-    var res = await fetch(new URL(`https://doza-traffic.com/api/wm/push.json?id=${process.env.apiToken}&offer=1&flow=264&site=103&phone=${phoneNumber}&name=${firstName}&last=${lastName}&email=${email}`))
+    var res = await fetch(new URL(`https://doza-traffic.com/api/wm/push.json?id=${process.env.crmToken}&offer=1&flow=264&site=103&phone=${phoneNumber}&name=${firstName}&last=${lastName}&email=${email}`))
     console.log(await res.json());
 }
 
